@@ -1,6 +1,9 @@
 package runge.projectile;
 
+import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
+
+import static junit.framework.TestCase.assertEquals;
 
 public class MorseCodeTest
 {
@@ -8,7 +11,7 @@ public class MorseCodeTest
     @Test
     public void getPhrase()
     {
-        String [] morse = { ".-",   "-...", "-.-.", "-..",  ".",
+        String [] morse = { ".-", "-...", "-.-.", "-..",  ".",
                 "..-.", "--.",  "....", "..",   ".---",
                 "-.-",  ".-..", "--",   "-.",   "---",
                 ".--.", "--.-", ".-.",  "...",  "-",
@@ -22,9 +25,9 @@ public class MorseCodeTest
         MorseCode morseCode = new MorseCode(morse, english);
 
         //when
-        String phrase = "is this gonna work?";
+        String phrase = String.valueOf(morseCode.getPhrase("hey"));
 
         //then
-        morseCode.getPhrase(phrase);
+        Assertions.assertEquals(" .... , . , -.-- , ", phrase);
     }
 }

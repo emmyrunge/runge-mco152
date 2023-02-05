@@ -5,7 +5,6 @@ import java.util.Arrays;
 public class MorseCode
 {
     private final String[] morse;
-    String phrase;
     private final char[] english;
 
     public MorseCode(String[] morse, char[] english)

@@ -10,10 +10,10 @@ class ProjectileTest
     public void getX()
     {
         //given
-        Projectile projectile = new Projectile(39, 77, 6);
+        Projectile projectile = new Projectile(39, 77);
 
         //when
-        double x = projectile.getX(6);
+        double x = projectile.getX();
 
         //then
         assertEquals(359.0414, x, .0001);
@@ -23,13 +23,29 @@ class ProjectileTest
     public void getY()
     {
         //given
-        Projectile projectile = new Projectile(39, 77, 6);
+        Projectile projectile = new Projectile(39, 77);
 
         //when
-        double y = projectile.getY(6);
+        double y = projectile.getY();
 
         //then
         assertEquals(114.3460, y, .0001);
+    }
+
+    //need to test to incTime
+    @Test
+    public void incTime()
+    {
+        //given
+        Projectile projectile = new Projectile(39, 77);
+
+        //when
+        projectile.incTime(.0001);
+        int newTime = (int) projectile.getTime();
+
+        //then
+        assertEquals(6, newTime);
+
     }
 
 }

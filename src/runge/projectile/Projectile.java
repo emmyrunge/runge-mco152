@@ -6,14 +6,13 @@ public class Projectile
     private final double velocity;
 
     private final double radians;
-    private final double time;
+    private double time = 6;
 
-    public Projectile(double angle, double velocity, double time)
+    public Projectile(double angle, double velocity)
     {
         this.angle = angle;
         this.velocity = velocity;
         this.radians = Math.toRadians(angle);
-        this.time = time;
     }
 
     public double getAngle()
@@ -30,28 +29,20 @@ public class Projectile
         return time;
     }
 
-    public double getX(double time)
+    public double getX()
     {
         return Math.cos(radians) * velocity * time;
     }
 
-    public double getY(double time)
+    public double getY()
     {
-        return Math.sin(radians) * velocity * time - .5 * 9.8 * Math.pow(time, 2);
+        return Math.sin(radians) * velocity * time - .5 * 9.8 * (time*time);
 
     }
 
-    public double incTime(double delta)
+    public void incTime(double delta)
     {
-
-        return time*delta;
+        this.time += delta;
     }
 }
 
-
-/*
-for(int time = 0; time <= 10; time++)
-        {
-            System.out.println("x is: " + projectile.getX(time) + ", " + "y is: " + projectile.getY(time));
-        }
- */
