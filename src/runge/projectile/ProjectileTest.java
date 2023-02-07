@@ -13,6 +13,7 @@ class ProjectileTest
         Projectile projectile = new Projectile(39, 77);
 
         //when
+        projectile.incTime(6);
         double x = projectile.getX();
 
         //then
@@ -26,6 +27,7 @@ class ProjectileTest
         Projectile projectile = new Projectile(39, 77);
 
         //when
+        projectile.incTime(6);
         double y = projectile.getY();
 
         //then
@@ -40,11 +42,11 @@ class ProjectileTest
         Projectile projectile = new Projectile(39, 77);
 
         //when
-        projectile.incTime(.0001);
-        int newTime = (int) projectile.getTime();
+        projectile.incTime(6);
+        double newTime = projectile.getTime();
 
         //then
-        assertEquals(6, newTime);
+        assertEquals(6, newTime, .0001);
 
     }
 

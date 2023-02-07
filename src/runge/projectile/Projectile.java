@@ -6,13 +6,14 @@ public class Projectile
     private final double velocity;
 
     private final double radians;
-    private double time = 6;
+    private double time;
 
     public Projectile(double angle, double velocity)
     {
         this.angle = angle;
         this.velocity = velocity;
         this.radians = Math.toRadians(angle);
+        this.time = 0;
     }
 
     public double getAngle()
@@ -37,12 +38,11 @@ public class Projectile
     public double getY()
     {
         return Math.sin(radians) * velocity * time - .5 * 9.8 * (time*time);
-
     }
 
     public void incTime(double delta)
     {
-        this.time += delta;
+        this.time = this.time + delta;
     }
 }
 

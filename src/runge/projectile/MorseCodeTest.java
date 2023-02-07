@@ -9,7 +9,7 @@ public class MorseCodeTest
 {
 
     @Test
-    public void getPhrase()
+    public void toMorseCode()
     {
         String [] morse = { ".-", "-...", "-.-.", "-..",  ".",
                 "..-.", "--.",  "....", "..",   ".---",
@@ -25,9 +25,33 @@ public class MorseCodeTest
         MorseCode morseCode = new MorseCode(morse, english);
 
         //when
-        String phrase = String.valueOf(morseCode.getPhrase("hey"));
+        String phrase = String.valueOf(morseCode.toMorseCode("hey"));
 
         //then
         Assertions.assertEquals(" .... , . , -.-- , ", phrase);
+    }
+
+    @Test
+    public void toEnglish()
+    {
+        String [] morse = { ".-", "-...", "-.-.", "-..",  ".",
+                "..-.", "--.",  "....", "..",   ".---",
+                "-.-",  ".-..", "--",   "-.",   "---",
+                ".--.", "--.-", ".-.",  "...",  "-",
+                "..-",  "...-", ".--",  "-..-", "-.--",
+                "--.." };
+        char [] english = {'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h',
+                'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r',
+                's', 't', 'u', 'v', 'w', 'x', 'y', 'z'};
+
+        //given
+        MorseCode englishPhraseMaker = new MorseCode(morse, english);
+
+        //when
+        String morseCode = englishPhraseMaker.toMessage(".... , . , -.-- , ");
+        //hey
+
+        //then
+        Assertions.assertEquals("hey", morseCode);
     }
 }

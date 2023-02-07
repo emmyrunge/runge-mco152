@@ -22,7 +22,7 @@ public class MorseCodeMain
 
         MorseCode morsecode = new MorseCode(morse, english);
 
-        System.out.println("Translation is: \n" + morsecode.getPhrase(phrase));
+        System.out.println("Translation is: \n" + morsecode.toMorseCode(phrase));
 
     }
 }
