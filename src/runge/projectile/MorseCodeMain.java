@@ -17,7 +17,7 @@ public class MorseCodeMain
                 's', 't', 'u', 'v', 'w', 'x', 'y', 'z', '1', '2',
                 '3', '4', '5', '6', '7', '8', '9', '0', '?', '.', ',', ';', ':'};
 
-        String phrase = "is this gonna work?";
+        String phrase = "hey you";
 
 
         MorseCode morsecode = new MorseCode(morse, english);

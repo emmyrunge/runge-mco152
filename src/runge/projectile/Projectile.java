@@ -42,7 +42,7 @@ public class Projectile
 
     public void incTime(double delta)
     {
-        this.time = this.time + delta;
+        this.time += delta;
     }
 }
 

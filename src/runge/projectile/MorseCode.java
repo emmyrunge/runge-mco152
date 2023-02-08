@@ -13,14 +13,13 @@ public class MorseCode
 
     public String toMorseCode(String phrase)
     {
-        StringBuilder morseSentence = new StringBuilder(" ");
-
+        StringBuilder morseSentence = new StringBuilder();
 
         for (int i = 0; i < phrase.length(); i++)
         {
             if (phrase.charAt(i) == ' ')
             {
-                morseSentence.append("/");
+                morseSentence.append("   ");
             }
             else
             {
@@ -29,48 +28,39 @@ public class MorseCode
 
                     if (phrase.charAt(i) == english[j])
                     {
-                        morseSentence.append(morse[j] + " , ");
+                        morseSentence.append(morse[j] + "   ");
                         break;
                     }
                 }
             }
         }
-        return String.valueOf(morseSentence);
+        return morseSentence.toString();
     }
 
     public String toMessage(String morseCode)
     {
+
         StringBuilder englishSentence = new StringBuilder();
 
-        String [] morseCodeWord = morseCode.split("/");
-
-        String [] morseCodeLetter = morseCode.split(" , ");
+        String[] morseCodeLetter = morseCode.split(" {3}");
 
 
-        //break down sentence to word
-        //break down word to letter
-        for (int i = 0; i < morseCodeWord.length; i++)
+        for (int j = 0; j < morseCodeLetter.length; j++)
         {
-            if (morseCode.equals("/"))
+            for (int k = 0; k < morse.length; k++)
             {
-                englishSentence.append("   ");
-            }
-            else
-            {
-                for (int j = 0; j < morseCodeLetter.length; j++)
+                if (morseCodeLetter[j].equals(morse[k]))
                 {
-                    for(int k = 0; k < morse.length; k++)
-                    {
-                        if (morseCodeLetter[j].equals(morse[k]))
-                        {
-                            englishSentence.append(english[k]);
-                            break;
-                        }
-                    }
+                    englishSentence.append(english[k]);
+                    break;
+                }
+                if (morseCodeLetter[j].equals(""))
+                {
+                    englishSentence.append(" ");
+                    break;
                 }
             }
         }
-        return String.valueOf(englishSentence);
+        return englishSentence.toString();
     }
 }
-
